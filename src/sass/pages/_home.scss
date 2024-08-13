@@ -1,71 +1,132 @@
-.header{
-    position: relative;
-    // background-color: transparent !important;
-    background-image: radial-gradient(at top right, #A2FFA045 0%, #1570EF00 60%) !important;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    padding: 25px 70px;
-    &__overlay{
-            /* background-color: transparent; */
+.header {
+  position: relative;
+  // background-color: transparent !important;
+  background-image: radial-gradient(
+    at top right,
+    #a2ffa045 0%,
+    #1570ef00 60%
+  ) !important;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  padding: 25px 70px;
+  &__overlay {
+    /* background-color: transparent; */
     width: 100%;
     height: 100%;
     background-color: transparent;
-    background-image: radial-gradient(at center center, #15EBEF9C 0%, #0C0C0D00 75%);
+    background-image: radial-gradient(
+      at center center,
+      #15ebef9c 0%,
+      #0c0c0d00 75%
+    );
     opacity: 0.2;
-    
-    // z-index: ;
-    
-    }
-    &__text{
-        // center using position absolute
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        h1{
-            color: white;
-            font-size: 55px;
-            font-weight: 700;
-            color: #FFFFFF99;
-            text-align: center;
-            line-height: .8;
-            // width: 65%;
-            margin-bottom: 16px;
-            
-        }
-        p{
-            text-align: center;
-            color: #FFFFFF99;
 
-        }
-    
+    // z-index: ;
+  }
+  &__text {
+    // center using position absolute
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1 {
+      color: white;
+      font-size: 55px;
+      font-weight: 700;
+    //   color: #ffffff99;
+      color: white;
+      text-align: center;
+      line-height: 0.8;
+      // width: 65%;
+      margin-bottom: 24px;
     }
-    &__navigation{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        ul{
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-            
-        }
-        a{
-            text-decoration: none;
-        }
+
+    p {
+      text-align: center;
+      color: #ffffff99;
+      &:nth-child(1){
+        color: $main-color;
+        margin-bottom: 24px;
+      }
     }
-    &__bank{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: .2;
-        // transform: translate(-50%, -50%);
-        // width: 0%;
-        // height: 100%;
-        
-        object-fit: cover;
+  }
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ul {
+      display: flex;
+      // gap: 3rem;
+      gap: 30px;
+      list-style: none;
     }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+      &:hover{
+          color:$main-color;
+      }
+    }
+  }
+  &__bank {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+    // transform: translate(-50%, -50%);
+    // width: 0%;
+    // height: 100%;
+
+    object-fit: cover;
+  }
+  &__logo {
+    // position: relative;
+    &--images {
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      /* padding: 12px 12px 12px 12px; */
+      background-color: #ffffff0f;
+      border-style: solid;
+      border-width: 1px 1px 1px 1px;
+      border-color: #ffffff14;
+      border-radius: 16px 16px 16px 16px;
+      opacity: .5;
+      &:nth-child(1) {
+        top: 25%;
+        left: 70%;
+        padding: 12px;
+        // background-color: red;
+      }
+      &:nth-child(2) {
+        top: 25%;
+        left: 25%;
+
+        padding: 12px;
+      }
+      &:nth-child(3) {
+        top: 50%;
+        left: 15%;
+        padding: 12px;
+      }
+      &:nth-child(4) {
+        top: 70%;
+        left: 25%;
+        width: 95px;
+        height: 95px;
+        padding: 12px;
+      }
+      &:nth-child(5) {
+        top: 70%;
+        left: 75%;
+        width: 95px;
+        height: 95px;
+        padding: 12px;
+      }
+    }
+  }
 }

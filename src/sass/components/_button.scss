@@ -1,0 +1,24 @@
+.button{
+    font-family: "Public Sans", Sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: None;
+    // line-height: 1em;
+    display: inline-block;
+    letter-spacing: 0em;
+    padding: 10px;
+    border-radius: 15px;
+
+    color: #fff;
+    // color: var(--e-global-color-uicore_headline);
+    background-color: #111112;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: rgba(255, 255, 255, .1);
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        color: #0C0C0D;
+        background-color: #a2ffa0;
+    }  
+}
