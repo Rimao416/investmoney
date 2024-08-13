@@ -8,8 +8,10 @@
   ) !important;
   width: 100%;
   height: 100vh;
-  background-color: black;
-  padding: 25px 70px;
+  background-color: hsl(0, 0%, 0%);
+  padding: 25px $p-8;
+  overflow: hidden;
+
   &__overlay {
     /* background-color: transparent; */
     width: 100%;
@@ -30,24 +32,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 150;
     h1 {
       color: white;
-      font-size: 55px;
+      font-size: $large-size;
       font-weight: 700;
-    //   color: #ffffff99;
+      //   color: #ffffff99;
       color: white;
       text-align: center;
       line-height: 0.8;
       // width: 65%;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     p {
       text-align: center;
-      color: #ffffff99;
-      &:nth-child(1){
+      color: $gray-text-color;
+      &:nth-child(1) {
         color: $main-color;
-        margin-bottom: 24px;
+        margin-bottom: 16px;
       }
     }
   }
@@ -65,23 +68,41 @@
     a {
       text-decoration: none;
       font-weight: bold;
-      &:hover{
-          color:$main-color;
+      &:hover {
+        color: $main-color;
       }
     }
   }
   &__bank {
     position: absolute;
+    // bottom: -50px;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    opacity: 0.2;
-    // transform: translate(-50%, -50%);
-    // width: 0%;
-    // height: 100%;
-
+    opacity: 0.4;
+    z-index: 1;
     object-fit: cover;
   }
+  &__container {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100px; /* La hauteur du dégradé */
+      background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0.8),
+        transparent
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+  }
+
   &__logo {
     // position: relative;
     &--images {
@@ -95,7 +116,7 @@
       border-width: 1px 1px 1px 1px;
       border-color: #ffffff14;
       border-radius: 16px 16px 16px 16px;
-      opacity: .5;
+      opacity: 0.5;
       &:nth-child(1) {
         top: 25%;
         left: 70%;
@@ -126,6 +147,185 @@
         width: 95px;
         height: 95px;
         padding: 12px;
+      }
+    }
+  }
+}
+.overview {
+  background-color: hsl(0, 0%, 0%);
+  padding: $p-8 $p-8;
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    &--title {
+      font-size: $title-size;
+      width: 60%;
+      line-height: 0.9;
+      text-align: center;
+    }
+    &--description {
+      color: $gray-text-color;
+      width: 45%;
+      text-align: center;
+    }
+    &--header {
+      color: $main-color;
+    }
+  }
+  &__cards {
+    margin-top: 54px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    &--card {
+      position: relative; /* Nécessaire pour positionner le pseudo-élément */
+      border-style: solid;
+      border-width: 1px;
+      border-color: #ffffff14;
+      transition: background 0.3s, border 0.3s, border-radius 0.3s,
+        box-shadow 0.3s;
+      padding: 32px;
+      // background-color: #fff;
+      z-index: 1;
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        border-color: $main-color;
+      }
+      h3 {
+        color: white;
+        font-size: 18px;
+      }
+      p {
+        color: $gray-text-color;
+      }
+      img {
+        background-color: #517353;
+        padding: 12px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+        // width: 50px;
+        // height: 50px;
+        object-fit: cover;
+        object-position: center;
+        // z-index: -1;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #284d3d;
+      }
+    }
+    &--card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp")
+        repeat;
+      opacity: 0.4; /* Ajustez l'opacité selon vos préférences */
+      // z-index: -1; /* Positionne le pseudo-élément derrière le contenu de la carte */
+      border-radius: inherit; /* S'assure que le pseudo-élément suit les coins arrondis de la carte */
+    }
+  }
+}
+.features {
+  padding: $p-8;
+  background-color: hsl(0, 0%, 0%);
+  &__header {
+    width: 65%;
+    margin-bottom: 72px;
+    &--title {
+      font-size: $title-size;
+      line-height: 0.9;
+    }
+    &--description {
+      color: $gray-text-color;
+      margin-top: 20px;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    * {
+      flex-basis: 50%;
+    }
+  }
+  &__wrapper {
+    &:nth-child(1) {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: #f3f3f3;
+        z-index: 3;
+      }
+    }
+    &:nth-child(2) {
+      position: relative;
+      // border: 1px solid $gray-text-color;
+      &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0.5),
+        transparent
+      );
+        z-index: 3;
+
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp")
+          repeat;
+        opacity: 0.4; /* Ajustez l'opacité selon vos préférences */
+      }
+      img {
+        object-fit: cover;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &--card {
+      position: relative;
+      padding: 20px 40px 20px 40px;
+      // z-index: 700;
+      cursor: pointer;
+      &.active {
+        background-color: #244d2a;
+
+        border-left: 3px solid $main-color;
+        z-index: 700;
+      }
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      p {
+        color: $gray-text-color;
+        margin-top: 12px;
       }
     }
   }

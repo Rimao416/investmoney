@@ -11,7 +11,7 @@ body::before {
   position: absolute;
   content: "";
   display: block;
-  background-image: url(https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp);
+  background-image: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp");
   opacity: 0.15;
   background-repeat: repeat;
   background-size: 257px auto;
@@ -22,5 +22,4 @@ body::before {
   right: 0;
   pointer-events: none;
   z-index: 99999998;
-
 }
