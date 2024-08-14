@@ -33,19 +33,19 @@ function Home() {
       <section className="header">
         <div className="header__navigation">
           <img src={Invest} />
-          <ul>
+          <ul className={`${active ? "active":""}`}>
             {menuItems.map((item, index) => (
               <li key={index}>
                 <a href={item.link}>{item.label}</a>
               </li>
             ))}
           </ul>
-          <Button content="S'inscrire" />
+          <Button content="S'inscrire" className={`${active ? "active w-100":""}`}/>
           <span className="header__icon" onClick={() => setActive(!active)}>
-            <RxHamburgerMenu />
+            {active ? <IoClose/> : <RxHamburgerMenu />}
           </span>
         </div>
-        <div
+        {/* <div
           className={`header__responsive header__responsive--${
             active ? "active" : "inactive"
           }`}
@@ -69,7 +69,7 @@ function Home() {
           </ul>
 
           <Button content="S'inscrire"/>
-        </div>
+        </div> */}
         <div className="header__logo">
           {LogoImages.map((logos) => (
             <img src={logos} alt={logos} className="header__logo--images" />
