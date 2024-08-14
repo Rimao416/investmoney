@@ -237,6 +237,9 @@
 .overview {
   background-color: hsl(0, 0%, 0%);
   padding: $p-8 $p-8;
+  @include respond(tab-port){
+    padding: 40px 40px;
+  }
   &__header {
     display: flex;
     flex-direction: column;
@@ -248,11 +251,19 @@
       width: 60%;
       line-height: 0.9;
       text-align: center;
+      @include respond(tab-port) {
+        width: 100%;
+        font-size:25px;
+      }
     }
     &--description {
       color: $gray-text-color;
       width: 45%;
       text-align: center;
+      @include respond(tab-port) {
+        width: 100%;
+        // font-size:25px;
+      }
     }
     &--header {
       color: $main-color;
@@ -262,6 +273,9 @@
     margin-top: 54px;
     display: flex;
     flex-direction: row;
+    @include respond(tab-port){
+      flex-direction: column;
+    }
     gap: 30px;
     &--card {
       position: relative; /* Nécessaire pour positionner le pseudo-élément */
@@ -317,13 +331,22 @@
 }
 .features {
   padding: $p-8;
+  @include respond(tab-port){
+    padding: 40px 40px;
+  }
   background-color: hsl(0, 0%, 0%);
   &__header {
     width: 65%;
     margin-bottom: 72px;
+    @include respond(tab-port){
+      width: 100%;
+    }
     &--title {
       font-size: $title-size;
       line-height: 0.9;
+      @include respond(tab-port){
+        font-size: 25px;
+      }
     }
     &--description {
       color: $gray-text-color;
