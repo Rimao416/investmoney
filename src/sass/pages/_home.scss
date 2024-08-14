@@ -11,7 +11,11 @@
   background-color: hsl(0, 0%, 0%);
   padding: 25px $p-8;
   overflow: hidden;
-
+  
+  @include respond(tab-port){
+    padding: 25px 40px;
+  }
+  
   &__overlay {
     /* background-color: transparent; */
     width: 100%;
@@ -25,6 +29,21 @@
     opacity: 0.2;
 
     // z-index: ;
+  }
+  &__icon{
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+    svg {
+      height: 25px;
+      width: 25px;
+      fill: white;
+      font-weight: bold;
+    } 
+    @include respond(tab-port){
+      display: block;
+    }
   }
   &__text {
     // center using position absolute
@@ -54,16 +73,23 @@
       }
     }
   }
-  &__navigation {
+  &__navigation{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     ul {
       display: flex;
       // gap: 3rem;
       gap: 30px;
       list-style: none;
+      @include respond(tab-port){
+        display: none;
+      }
+    }
+    ul + button{
+      @include respond(tab-port){
+        display: none;
+      }
     }
     a {
       text-decoration: none;
@@ -72,6 +98,37 @@
         color: $main-color;
       }
     }
+
+  }
+  &__responsive{
+    display: none;
+
+    @include respond(tab-port){
+      &--active {
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 25px 40px;
+        z-index: 900;
+        width: 100%;
+      }
+
+    }
+  }
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg {
+      height: 25px;
+      width: 25px;
+      fill: white;
+      font-weight: bold;
+    } 
+    
+
   }
   &__bank {
     position: absolute;
@@ -288,17 +345,17 @@
         z-index: 3;
 
       }
-      &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp")
-          repeat;
-        opacity: 0.4; /* Ajustez l'opacité selon vos préférences */
-      }
+      // &::before {
+      //   content: "";
+      //   position: absolute;
+      //   top: 0;
+      //   right: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   background: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp")
+      //     repeat;
+      //   opacity: 0.4; /* Ajustez l'opacité selon vos préférences */
+      // }
       img {
         object-fit: cover;
         overflow: hidden;
@@ -328,5 +385,20 @@
         margin-top: 12px;
       }
     }
+  }
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  // background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 0;
+  &--active {
+    opacity: 1;
+    z-index: 300;
   }
 }

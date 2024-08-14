@@ -1,5 +1,6 @@
 // import React from 'react'
 import { useState } from "react";
+import { IoClose } from "react-icons/io5";
 import Invest from "../assets/invest.png";
 import MyIcon from "../assets/invest.webp";
 import Logo_1 from "../assets/logo_1.png";
@@ -8,36 +9,66 @@ import Logo_3 from "../assets/logo_3.png";
 import Logo_4 from "../assets/logo_4.png";
 import Logo_5 from "../assets/logo_5.png";
 import Button from "../components/Button";
-import Analytic from "../assets/analytic.svg"
-import Invoice from "../assets/invoice.svg"
-import Connexion from "../assets/connexion.svg"
+import Analytic from "../assets/analytic.svg";
+import Invoice from "../assets/invoice.svg";
+import { RxHamburgerMenu } from "react-icons/rx";
+
+import Connexion from "../assets/connexion.svg";
 
 import { cardData } from "../constants/CardData";
 import { featuresData } from "../constants/FeaturesData";
 function Home() {
-  const [activeFeature,setActiveFeatures]=useState(0)
+  const [activeFeature, setActiveFeatures] = useState(0);
   const LogoImages = [Logo_1, Logo_2, Logo_3, Logo_4, Logo_5];
-  const ImageFeature=[Analytic,Invoice,Connexion]
+  const ImageFeature = [Analytic, Invoice, Connexion];
+  const menuItems = [
+    { label: "Accueil", link: "#" },
+    { label: "A Propos", link: "#" },
+    { label: "Avantages", link: "#" },
+    { label: "Temoignages", link: "#" },
+  ];
+  const [active, setActive] = useState(false);
   return (
     <div className="app">
       <section className="header">
         <div className="header__navigation">
           <img src={Invest} />
           <ul>
-            <li>
-              <a href="#">Accueil</a>
-            </li>
-            <li>
-              <a href="#">A Propos</a>
-            </li>
-            <li>
-              <a href="#">Avantages</a>
-            </li>
-            <li>
-              <a href="#">Témoignages</a>
-            </li>
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <a href={item.link}>{item.label}</a>
+              </li>
+            ))}
           </ul>
           <Button content="S'inscrire" />
+          <span className="header__icon" onClick={() => setActive(!active)}>
+            <RxHamburgerMenu />
+          </span>
+        </div>
+        <div
+          className={`header__responsive header__responsive--${
+            active ? "active" : "inactive"
+          }`}
+        >
+          <div className="header__wrapper">
+            <img src={Invest} alt="" />
+            <span className="navigation__icon" onClick={() => setActive(false)}>
+              <IoClose />
+            </span>
+          </div>
+
+          <ul
+            className={`navigation__wrapper"
+            }`}
+          >
+            {menuItems.map((item, index) => (
+              <li className="navigation__wrapper--list" key={index}>
+                <a href={item.link}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+
+          <Button content="S'inscrire"/>
         </div>
         <div className="header__logo">
           {LogoImages.map((logos) => (
@@ -96,8 +127,13 @@ function Home() {
         </div>
         <div className="features__container">
           <div className="features__wrapper">
-            {featuresData.map((features,index) => (
-              <div className={`features__wrapper--card ${index==activeFeature ? "active":""}`} onClick={()=>setActiveFeatures(index)}>
+            {featuresData.map((features, index) => (
+              <div
+                className={`features__wrapper--card ${
+                  index == activeFeature ? "active" : ""
+                }`}
+                onClick={() => setActiveFeatures(index)}
+              >
                 <img src={features.icon} alt={features.icon} />
                 <h3>{features.title}</h3>
                 <p>{features.content}</p>
@@ -109,6 +145,7 @@ function Home() {
           </div>
         </div>
       </section>
+      <div className={`overlay overlay--${active ? "active" : ""}`}></div>
     </div>
   );
 }
