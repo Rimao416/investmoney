@@ -57,8 +57,8 @@
     z-index: 150;
 
     @include respond(tab-port) {
-        width: 80%;
-    }      
+      width: 80%;
+    }
     h1 {
       color: white;
       font-size: $large-size;
@@ -94,20 +94,19 @@
       height: 100%;
       flex-direction: column;
       align-items: flex-start;
-
     }
     ul {
       display: flex;
       // gap: 3rem;
       gap: 30px;
       list-style: none;
-      transition: .2s all ease-in-out;
+      transition: 0.2s all ease-in-out;
       @include respond(tab-port) {
         margin-top: 40px;
         opacity: 0;
         flex-direction: column;
       }
-      &.active{
+      &.active {
         @include respond(tab-port) {
           opacity: 1;
         }
@@ -131,7 +130,6 @@
       }
     }
   }
-
 
   &__bank {
     position: absolute;
@@ -181,7 +179,7 @@
         top: 25%;
         left: 70%;
         padding: 12px;
-        @include respond(tab-port){
+        @include respond(tab-port) {
           left: 10%;
           top: 15%;
         }
@@ -191,9 +189,8 @@
         top: 25%;
         left: 25%;
 
-
         padding: 8px;
-        @include respond(tab-port){
+        @include respond(tab-port) {
           left: 65%;
           top: 15%;
         }
@@ -202,7 +199,7 @@
         top: 50%;
         left: 15%;
         padding: 12px;
-        @include respond(tab-port){
+        @include respond(tab-port) {
           left: 10%;
           top: 75%;
         }
@@ -213,7 +210,7 @@
         width: 95px;
         height: 95px;
         padding: 12px;
-        @include respond(tab-port){
+        @include respond(tab-port) {
           left: 65%;
           top: 75%;
         }
@@ -224,11 +221,11 @@
         width: 95px;
         height: 95px;
         padding: 12px;
-        @include respond(tab-port){
+        @include respond(tab-port) {
           left: 50%;
           top: 50%;
           transform: translateX(-50%);
-          opacity: .2;
+          opacity: 0.2;
         }
       }
     }
@@ -237,7 +234,7 @@
 .overview {
   background-color: hsl(0, 0%, 0%);
   padding: $p-8 $p-8;
-  @include respond(tab-port){
+  @include respond(tab-port) {
     padding: 40px 40px;
   }
   &__header {
@@ -253,7 +250,7 @@
       text-align: center;
       @include respond(tab-port) {
         width: 100%;
-        font-size:25px;
+        font-size: 25px;
       }
     }
     &--description {
@@ -273,7 +270,7 @@
     margin-top: 54px;
     display: flex;
     flex-direction: row;
-    @include respond(tab-port){
+    @include respond(tab-port) {
       flex-direction: column;
     }
     gap: 30px;
@@ -331,20 +328,20 @@
 }
 .features {
   padding: $p-8;
-  @include respond(tab-port){
+  @include respond(tab-port) {
     padding: 40px 40px;
   }
   background-color: hsl(0, 0%, 0%);
   &__header {
     width: 65%;
     margin-bottom: 72px;
-    @include respond(tab-port){
+    @include respond(tab-port) {
       width: 100%;
     }
     &--title {
       font-size: $title-size;
       line-height: 0.9;
-      @include respond(tab-port){
+      @include respond(tab-port) {
         font-size: 25px;
       }
     }
@@ -364,6 +361,9 @@
   &__wrapper {
     &:nth-child(1) {
       position: relative;
+      @include respond(tab-port) {
+        flex-basis: 100%;
+      }
       &::after {
         content: "";
         position: absolute;
@@ -378,6 +378,9 @@
     &:nth-child(2) {
       position: relative;
       // border: 1px solid $gray-text-color;
+      @include respond(tab-port) {
+        display: none;
+      }
       &::after {
         content: "";
         position: absolute;
@@ -435,18 +438,379 @@
     }
   }
 }
+.control {
+  display: flex;
+  padding: $p-8;
+
+  @include respond(tab-port) {
+    padding: 40px 40px;
+  }
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background-color: black;
+  gap: 20px;
+  position: relative;
+  * {
+    flex-basis: 50%;
+  }
+  &__wrapper {
+    position: relative;
+
+    &:nth-child(1) {
+      @include gradient;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+    &:nth-child(2) {
+      @include respond(tab-port) {
+        flex-basis: 100%;
+      }
+    }
+  }
+  img {
+    // position: absolute;
+    // top: 0;
+
+    width: 80%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  h1 {
+    font-size: $title-size;
+    line-height: 0.9;
+    @include respond(tab-port) {
+      font-size: 25px;
+    }
+  }
+  p {
+    color: $gray-text-color;
+    margin-top: 20px;
+    @include respond(tab-port) {
+      margin-top: 12px;
+    }
+  }
+}
+.choice {
+  display: flex;
+  padding: $p-8;
+
+  @include respond(tab-port) {
+    padding: 40px 40px;
+  }
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  background-color: black;
+  gap: 20px;
+  position: relative;
+  * {
+    flex-basis: 50%;
+  }
+  &__wrapper {
+    position: relative;
+
+    &:nth-child(2) {
+      @include gradient;
+      @include respond(tab-port) {
+        display: none;
+      }
+    }
+    &:nth-child(1) {
+      @include respond(tab-port) {
+        flex-basis: 100%;
+      }
+    }
+  }
+  img {
+    // position: absolute;
+    // top: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  h1 {
+    font-size: $title-size;
+    line-height: 0.9;
+    @include respond(tab-port) {
+      font-size: 25px;
+    }
+  }
+  p {
+    color: $gray-text-color;
+    margin-top: 20px;
+    @include respond(tab-port) {
+      margin-top: 12px;
+    }
+  }
+}
+.testimonial {
+  background-color: black;
+  width: 100%;
+  background-image: url(https://finflow.uicore.co/cryptocurrency-trading/wp-content/uploads/sites/11/2023/02/Cryptocurrency-Testimonial-BG.webp);
+  // background-position: 70% 0px;
+  // background-repeat: no-repeat;
+  // background-size: 500px auto;
+
+  opacity: 1;
+
+  // padding: $p-8;
+  // height: 100vh;
+  &__overlay {
+    padding: $p-8;
+    background-image: radial-gradient(
+      at top center,
+      #15dfef29 0%,
+      #1570ef00 80%
+    );
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include respond(tab-port){
+      padding: 40px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__wrapper {
+  &:nth-child(1){
+    width: 30%;
+    @include respond(tab-port){
+    width: 100%;
+    }
+    h1{
+      font-size: $title-size;
+      line-height: 0.9;
+      @include respond(tab-port) {
+        font-size: 25px;
+      }
+    }
+    & p:first-of-type{
+      color: $main-color;
+      margin-bottom: 32px;
+    }
+    & p:last-of-type{
+      color: $gray-text-color;
+      margin-top: 32px;
+    }
+    
+  }
+    &:nth-child(2){
+      width: 65%;
+      @include respond(tab-port){
+        margin-top: 26px;
+      width: 100%;
+      }
+
+      img{
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-right: 10px;
+
+    }
+    }
+
+  }
+  &__body{
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid #646464;
+    padding: 40px;
+    cursor: pointer;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://finflow.uicore.co/cryptocurrency-trading/wp-content/plugins/uicore-framework/assets/img/noise.webp")
+        repeat;
+      opacity: 0.3; /* Ajustez l'opacité selon vos préférences */
+      // z-index: -1; /* Positionne le pseudo-élément derrière le contenu de la carte */
+      border-radius: inherit; /* S'assure que le pseudo-élément suit les coins arrondis de la carte */
+    }
+    & p:first-of-type{
+      margin-top: 12px;
+    }
+    & p:last-of-type{
+      margin-top: 32px;
+    }
+  }
+    
+}
+.wallet{
+  background-color:black;
+  padding: $p-8;
+  @include respond(tab-port){
+    padding: 40px;
+  }
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  @include respond(tab-port){
+    flex-direction: column;
+  }
+  &__wrapper{
+    flex-basis: 50%;
+    &:nth-child(1){
+      img{
+        background-color: #517353;
+        padding: 12px;
+        border-radius: 50%;
+        margin-bottom: 12px;
+        // width: 50px;
+        // height: 50px;
+        object-fit: cover;
+        object-position: center;
+        // z-index: -1;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #284d3d;
+      }
+      h1{
+        font-size: $title-size;
+        line-height: 0.9;
+        margin-top: 16px;
+        @include respond(tab-port) {
+          font-size: 25px;
+        }
+      }
+      p{
+        margin-top: 16px;
+        color: $gray-text-color;
+      }
+    }
+    &:nth-child(2){
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      img{
+        width: 70px;
+        height: 70px;
+        object-fit: cover;
+      }
+      p{
+        color: $gray-text-color;
+      }
+    }
+  }
+  &__body{
+    flex-basis: 45%;
+  }
+
+}
 .overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0,1);
+  background-color: rgba(0, 0, 0, 1);
   // background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
   opacity: 0;
   &--active {
     opacity: 1;
     z-index: 300;
+  }
+}
+
+
+.footer {
+  // background-color: #383838;
+
+  background-color: #000;
+  color: #fff;
+  padding: 50px 80px;
+  text-align: center;
+}
+
+.footer__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer__about,
+.footer__links,
+.footer__contact,
+.footer__social {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer__about h3,
+.footer__links h3,
+.footer__contact h3,
+.footer__social h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer__links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer__links ul li {
+  margin: 5px 0;
+}
+
+.footer__links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer__links ul li a:hover {
+  text-decoration: underline;
+}
+.footer__social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.footer__social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: $main-color;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.footer__social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer__bottom {
+  margin-top: 20px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
   }
 }
